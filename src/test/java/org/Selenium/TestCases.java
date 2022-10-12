@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class MyFirstTestCases extends BaseTest {
+public class TestCases extends BaseTest {
 
     public void wait(int milliseconds) {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(milliseconds));
