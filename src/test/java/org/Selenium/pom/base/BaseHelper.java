@@ -7,16 +7,20 @@ import java.util.List;
 
 public class BaseHelper {
     public void validateStringArray(String[] values, String[] expectedValues) {
+        // ovde smo ostavili assert u metodi, ali, generalno savet je da bude u testu zbog citiljosti
+        // ako su nizovi razlicite duzine nema smisla da vrsimo komparaciju
+        if (values.length != expectedValues.length) {
+            Assert.fail("The arrays should be of same size when comparing");
+        }
 
         for (int i = 0; i < values.length; i++) {
             Assert.assertEquals(values[i], expectedValues[i]);
         }
     }
 
-    public void validateIsImageVisible(List<WebElement> imageElements) {
-        for (int i = 0; i < imageElements.size(); i++) {
-            Assert.assertEquals(imageElements.get(i).isDisplayed(),true);
-        }
+    public boolean checkImagesVisibility(List<WebElement> imageElements) {
+        // bolje je da nam assert bude u testu, zbog citiljvosti samog testa
+        return imageElements.stream().allMatch(WebElement::isDisplayed);
     }
 
     public void validateIfTextInElementExists(List<WebElement> elements) {

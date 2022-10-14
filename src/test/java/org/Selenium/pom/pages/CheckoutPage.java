@@ -3,12 +3,18 @@ package org.Selenium.pom.pages;
 import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
 public class CheckoutPage extends WithChromeDriver {
-    private final By firstNameFld = (By.id("billing_first_name"));
+
+    @FindBy(id = "billing_first_name") // probaj sa ovim
+    private WebElement firstNameFld;
+    //private final By firstNameFld = (By.id("billing_first_name"));
     private final By lastNameFld = (By.id("billing_last_name"));
     private final By countryRegionFld = (By.id("billing_country"));
     private final By stateFld = (By.id("billing_state"));
@@ -25,11 +31,13 @@ public class CheckoutPage extends WithChromeDriver {
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this); // configuracija page factory
     }
 
     public CheckoutPage enterFirstName (String firstname){
-        driver.findElement(firstNameFld).clear();
-        driver.findElement(firstNameFld).sendKeys(firstname);
+        //cistije je ovako
+        firstNameFld.clear();
+        firstNameFld.sendKeys(firstname);
         return this;
     }
     public CheckoutPage enterLastName (String lastName){
