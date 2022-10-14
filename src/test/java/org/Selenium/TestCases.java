@@ -148,7 +148,11 @@ public class TestCases extends BaseTest {
         String[] titles = recirculation.getTitles();
         String[] expectedTitles = {recirculationTitle1, recirculationTitle2, recirculationTitle3};
 
-        baseHelper.validateStringArray(titles, expectedTitles);
+        //ovo ce da radi ako ti treba proveravanje 2 niza.
+        Assert.assertEquals(titles, expectedTitles);
+        //ovo ce da radi ako ti nije bitan redosled, a proverava 2 niza
+        //MatcherAssert.assertThat(List.of(titles), Matchers.containsInAnyOrder(List.of(expectedTitles)));
+        //baseHelper.validateStringArray(titles, expectedTitles);
 
         String[] descriptions = recirculation.getDescriptions();
         String[] expectedDescriptions = {recirculationDescription1, recirculationDescription2, recirculationDescription3};
@@ -163,7 +167,7 @@ public class TestCases extends BaseTest {
         baseHelper.validateStringArray(buttonsHrefs, expectedButtonsHrefs);
 
         List<WebElement> images = recirculation.getImages();
-        baseHelper.validateIsImageVisible(images);
+        Assert.assertTrue(baseHelper.checkImagesVisibility(images), "All images should be visible");
     }
 
     @Test
@@ -189,8 +193,8 @@ public class TestCases extends BaseTest {
 
         Assert.assertEquals(featuredProducts.getTitle(), featuredProductsTitle);
 
-        //Images are visible
-        baseHelper.validateIsImageVisible(featuredProducts.getImages());
+        Assert.assertTrue(baseHelper.checkImagesVisibility(featuredProducts.getImages()),
+                "The featured products images should be visible");
         //Each product has title
         baseHelper.validateIfTextInElementExists(featuredProducts.getProductTitles());
         //Each category has name (@TODO:CREATE ENUM FOR PRODUCT CATEGORIES)
@@ -216,7 +220,8 @@ public class TestCases extends BaseTest {
 
         Services services = new Services(driver);
 
-        baseHelper.validateIsImageVisible(services.getImages());
+        Assert.assertTrue(baseHelper.checkImagesVisibility(services.getImages()),
+                "The service images should be visible");
         baseHelper.validateIfTextInElementExists(services.getServicesTitles());
         baseHelper.validateIfTextInElementExists(services.getServicesDescription());
     }

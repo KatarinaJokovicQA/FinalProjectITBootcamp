@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class Recirculation extends WithChromeDriver {
-    private final By wrapperElement = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]");
+    private final By wrapperElement = By.xpath(XPaths.WRAPPER_ELEMENT.getXpath()); // enum za konstante, lakse se snalazimo
 
     public Recirculation(WebDriver driver) {
         super(driver);
