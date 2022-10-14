@@ -1,10 +1,10 @@
 package org.Selenium.pom.pages;
 
-import org.Selenium.pom.base.BasePage;
+import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CartPage extends BasePage {
+public class CartPage extends WithChromeDriver {
     private final By productName = By.cssSelector("td[class='product-name'] a");
     private final By checkoutBtn = (By.cssSelector(".checkout-button"));
     public CartPage(WebDriver driver) {

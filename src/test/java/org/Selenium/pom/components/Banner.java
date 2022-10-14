@@ -1,10 +1,10 @@
 package org.Selenium.pom.components;
 
-import org.Selenium.pom.pages.HomePage;
+import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Banner extends HomePage {
+public class Banner extends WithChromeDriver {
     private final By title = By.cssSelector(".wp-block-cover__inner-container h1");
     private final By description = By.cssSelector(".wp-block-cover__inner-container h3");
     private final By shopNowButton = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]");

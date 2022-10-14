@@ -1,13 +1,13 @@
 package org.Selenium.pom.components;
 
-import org.Selenium.pom.pages.HomePage;
+import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class Recirculation extends HomePage {
+public class Recirculation extends WithChromeDriver {
     private final By wrapperElement = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]");
 
     public Recirculation(WebDriver driver) {

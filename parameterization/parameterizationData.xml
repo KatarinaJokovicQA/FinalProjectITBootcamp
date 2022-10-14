@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestCases" thread-count="1" >
+    <test name="userTestData">
+<!--        Site Map-->
+        <parameter name="homePage" value="https://askomdch.com/" />
+        <parameter name="storePage" value="https://askomdch.com/store/" />
+        <parameter name="productCategoryMenPage" value="https://askomdch.com/product-category/men/" />
+        <parameter name="productCategoryWomanPage" value="https://askomdch.com/product-category/women/" />
+        <parameter name="productCategoryAccessoriesPage" value="https://askomdch.com/product-category/accessories/"/>
+        <parameter name="accountPage" value="https://askomdch.com/account/"/>
+        <parameter name="aboutPage" value="https://askomdch.com/about/"/>
+        <parameter name="contactUsPage" value="https://askomdch.com/contact-us/"/>
+        <parameter name="cartPage" value="https://askomdch.com/cart/"/>
+        <parameter name="womanJeansPage" value="https://askomdch.com/product-category/womens-jeans/"/>
+        <parameter name="womanShirtsPage" value="https://askomdch.com/product-category/womens-shirts/"/>
+        <parameter name="womanShoesPage" value="https://askomdch.com/product-category/womens-shoes/"/>
+        <parameter name="manJeansPage" value="https://askomdch.com/product-category/mens-jeans/"/>
+        <parameter name="manShirtsPage" value="https://askomdch.com/product-category/mens-shirts/"/>
+        <parameter name="manShoesPage" value="https://askomdch.com/product-category/mens-shoes/"/>
+<!--        External Links-->
+        <parameter name="appleStore" value="https://www.apple.com/in/app-store/"/>
+        <parameter name="googlePlayStore" value="https://play.google.com/store"/>
+<!--        Demo User Credentials-->
+        <parameter name="demoUserName" value="demouser2"/>
+        <parameter name="demoPassword" value="demopwd"/>
+        <parameter name="storePageHref" value="https://askomdch.com/store"/>
+        <parameter name="contactUsPageHref" value="https://askomdch.com/contact-us"/>
+<!--        User Credentials-->
+        <parameter name="username" value="katatestkata" />
+        <parameter name="email" value="katarina.test.qa@dispostable.com" />
+        <parameter name="password" value="katatestpasskata" />
+<!--        Banner Component Data-->
+        <parameter name="bannerTitle" value="Raining Offers for Hot Summer!" />
+        <parameter name="bannerDescription" value="25% OFF On all products" />
+        <parameter name="shopNowButtonText" value="SHOP NOW" />
+        <parameter name="findMoreButtonText" value="FIND MORE" />
+<!--        Recirculation Component Data-->
+        <parameter name="recirculationTitle1" value="20% Off on Tank Tops" />
+        <parameter name="recirculationTitle2" value="Latest Eyewear" />
+        <parameter name="recirculationTitle3" value="Let’s Suit Up" />
+        <parameter name="recirculationDescription1" value="Lorem ipsum dolor sit amet consectetur" />
+        <parameter name="recirculationDescription2" value="Lorem ipsum dolor sit amet consectetur" />
+        <parameter name="recirculationDescription3" value="Lorem ipsum dolor sit amet consectetur" />
+        <parameter name="button1Text" value="SHOP NOW" />
+        <parameter name="button2Text" value="SHOP NOW" />
+        <parameter name="button3Text" value="CHECK OUT" />
+<!--        Featured Products Component Data-->
+        <parameter name="featuredProductsTitle" value="Featured Products" />
+        <parameter name="addToCartButtonText" value="ADD TO CART" />
+        <parameter name="viewCartLinkText" value="View cart" />
+<!--        Footer Component Data-->
+        <parameter name="footerColumnTitle1" value="Quick Links" />
+        <parameter name="footerColumnTitle2" value="For Her" />
+        <parameter name="footerColumnTitle3" value="For Him" />
+        <parameter name="footerColumnTitle4" value="AOD on Mobile" />
+<!--        User Auth Cookie Name-->
+        <parameter name="authCookieName" value="wordpress_logged_in"/>
+<!--        Search Term-->
+        <parameter name="searchTerm" value="jeans"/>
+        <parameter name="searchTermCheckout" value="Blue"/>
+<!--        Product Name-->
+        <parameter name="productName" value="Blue Shoes"/>
+<!--        Checkout Credentials-->
+        <parameter name="firstName" value="demo"/>
+        <parameter name="lastName" value="user"/>
+        <parameter name="addressLine" value="San Francisco"/>
+        <parameter name="city" value="San Francisco"/>
+        <parameter name="postalCode" value="94188"/>
+        <parameter name="checkoutEmail" value="askomdch@gmail.com"/>
+        <parameter name="country" value="California"/>
+        <parameter name="state" value="United States (US)"/>
+<!--       Messages-->
+        <parameter name="checkoutConfirmationMessage" value="Thank you. Your order has been received."/>
+        <parameter name="accountAlreadyRegisteredError" value="Error: An account is already registered with your email address. Please log in."/>
+
+        <classes>
+            <class name="org.Selenium.TestCases">
+                    <methods>
+                            <include name="navigationLinks"/>
+                            <include name="verifyHomeBannerComponent"/>
+                            <include name="verifyHomeRecirculationComponent"/>
+                            <include name="verifyFeaturedProductsComponent"/>
+                            <include name="verifyServicesComponent"/>
+                            <include name="verifyFooter"/>
+                            <include name="verifyBelowFooter"/>
+                            <include name="loginWithExistingAccount"/>
+                            <include name="logout"/>
+                            <include name="createNewAccount"/>
+                            <include name="lostYourPassword"/>
+                            <include name="validateStoreSearch"/>
+                            <include name="guestCheckoutUsingDirectBankTransfer"/>
+                            <include name="loginAndCheckoutUsingDirectBankTransfer"/>
+                    </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

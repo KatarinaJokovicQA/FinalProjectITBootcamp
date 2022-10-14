@@ -1,11 +1,13 @@
 package org.Selenium.pom.pages;
 
-import org.Selenium.pom.base.BasePage;
+import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class CheckoutPage extends BasePage {
+import java.time.Duration;
+
+public class CheckoutPage extends WithChromeDriver {
     private final By firstNameFld = (By.id("billing_first_name"));
     private final By lastNameFld = (By.id("billing_last_name"));
     private final By countryRegionFld = (By.id("billing_country"));
@@ -14,9 +16,8 @@ public class CheckoutPage extends BasePage {
     private final By billingCityFld = (By.id("billing_city"));
     private final By billingPostCodeFld = (By.id("billing_postcode"));
     private final By billingEmailFld = (By.id("billing_email"));
-    private final By placeOrderBtn = (By.id("place_order"));
-    private final By successNotice = (By.id(".woocommerce-notice"));
-
+    private final By placeOrderBtn1 = (By.id("place_order"));
+    private final By placeOrderBtn2 = (By.id("place_order"));
     private final By clickHereToLoginLink = By.className("showlogin");
     private final By usernameFld = By.id("username");
     private final By passwordFld = By.id("password");
@@ -25,6 +26,7 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
+
     public CheckoutPage enterFirstName (String firstname){
         driver.findElement(firstNameFld).clear();
         driver.findElement(firstNameFld).sendKeys(firstname);
@@ -65,18 +67,16 @@ public class CheckoutPage extends BasePage {
         driver.findElement(billingEmailFld).sendKeys(email);
         return this;
     }
-    public CheckoutPage placeOrder (){
-        driver.findElement(placeOrderBtn).click();
-        return this;
+    public void placeOrder (){
+        System.out.println("KLIKEN JA TO BRE");
+        driver.findElement(placeOrderBtn1).click();
     }
-
-    public String getNotice (){
-        return driver.findElement(successNotice).getText();
+    public void placeGuestOrder (){
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
+        driver.findElement(placeOrderBtn2).click();
     }
-
-    public CheckoutPage clickHereToLoginLink () {
+    public void clickHereToLoginLink () {
         driver.findElement(clickHereToLoginLink).click();
-        return this;
     }
 
     public CheckoutPage enterUserName (String username) {

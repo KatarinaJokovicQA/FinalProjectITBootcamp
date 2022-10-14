@@ -1,13 +1,10 @@
 package org.Selenium.pom.pages;
 
-import org.Selenium.pom.base.BasePage;
-import org.Selenium.pom.components.Banner;
-import org.Selenium.pom.components.FeaturedProducts;
-import org.Selenium.pom.components.Recirculation;
+import org.Selenium.pom.base.WithChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage {
+public class HomePage extends WithChromeDriver {
     private final By homeMenuLink = By.cssSelector("#menu-item-1226 > a");
     private final By storeMenuLink = By.cssSelector("#menu-item-1227 > a");
     private final By menMenuLink = By.cssSelector("#menu-item-1228 > a");
@@ -21,20 +18,15 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
-    public FeaturedProducts getFeaturedProductsComponent () {
-        return new FeaturedProducts(driver);
-    }
-    public Banner getBannerComponent () {
-        return new Banner(driver);
-    }
-    public Recirculation getRecirculationComponent () {
-        return new Recirculation(driver);
-    }
+
     public StorePage navigateToStoreUsingMenu() {
         driver.findElement(storeMenuLink).click();
         return new StorePage(driver);
     }
-
+    public AccountPage navigateToAccountUsingMenu() {
+        driver.findElement(accountMenuLink).click();
+        return new AccountPage(driver);
+    }
     public String getHomeLinkMenuHref() {
         return driver.findElement(homeMenuLink).getAttribute("href");
     }
